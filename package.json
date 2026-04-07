@@ -1,0 +1,22 @@
+{
+  "name": "algolia-travel-search-frontend",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "algoliasearch": "^5.50.1",
+    "instantsearch.js": "^4.93.0",
+    "nuxt": "^4.4.2",
+    "vue": "^3.5.31",
+    "vue-instantsearch": "^4.24.4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.5.2"
+  }
+}
