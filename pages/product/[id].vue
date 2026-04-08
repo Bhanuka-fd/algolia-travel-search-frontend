@@ -1,23 +1,15 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { useFetch, useRoute } from 'nuxt/app'
-import type { Departure, Product } from '../../types/travel'
-
 const route = useRoute()
 
-const { data: products } = await useFetch<Product[]>('/api/products', {
-  default: () => []
-})
-const { data: departures } = await useFetch<Departure[]>('/api/departures', {
-  default: () => []
-})
+const { data: products } = await useFetch('/api/products')
+const { data: departures } = await useFetch('/api/departures')
 
 const product = computed(() =>
-  products.value.find((item) => item.productId === route.params.id)
+  products.value?.find((item: any) => item.productId === route.params.id)
 )
 
 const relatedDepartures = computed(() =>
-  departures.value.filter((item) => item.productId === route.params.id)
+  departures.value?.filter((item: any) => item.productId === route.params.id) || []
 )
 </script>
 
@@ -30,9 +22,15 @@ const relatedDepartures = computed(() =>
       <p><strong>Theme:</strong> {{ product.theme }}</p>
       <p><strong>Duration:</strong> {{ product.duration }} days</p>
       <p><strong>Base Price:</strong> ${{ product.basePrice }}</p>
+      <p><strong>Rating:</strong> {{ product.rating }}</p>
+      <p><strong>Total Departures:</strong> {{ product.departureCount }}</p>
+
+      <button style="margin-top:12px;padding:10px 16px;border:none;border-radius:8px;background:#111827;color:white;cursor:pointer;">
+        Start Booking
+      </button>
     </div>
 
-    <h2>Related Departures</h2>
+    <h2 style="margin-bottom:16px;">Related Departures</h2>
     <div class="grid grid-3">
       <DepartureCard
         v-for="departure in relatedDepartures"
@@ -40,5 +38,9 @@ const relatedDepartures = computed(() =>
         :departure="departure"
       />
     </div>
+  </div>
+
+  <div class="container" v-else>
+    <h1 class="page-title">Product not found</h1>
   </div>
 </template>

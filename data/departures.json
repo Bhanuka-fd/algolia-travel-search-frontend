@@ -1,0 +1,171 @@
+[
+  {
+    "objectID": "dep_japan_001",
+    "departureId": "dep_japan_001",
+    "productId": "prod_japan_01",
+    "productName": "Best of Japan",
+    "startDate": "2026-05-01",
+    "endDate": "2026-05-10",
+    "price": 2500,
+    "availability": 12,
+    "deal": false
+  },
+  {
+    "objectID": "dep_japan_002",
+    "departureId": "dep_japan_002",
+    "productId": "prod_japan_01",
+    "productName": "Best of Japan",
+    "startDate": "2026-05-15",
+    "endDate": "2026-05-24",
+    "price": 2400,
+    "availability": 8,
+    "deal": true
+  },
+  {
+    "objectID": "dep_japan_003",
+    "departureId": "dep_japan_003",
+    "productId": "prod_japan_01",
+    "productName": "Best of Japan",
+    "startDate": "2026-06-01",
+    "endDate": "2026-06-10",
+    "price": 2600,
+    "availability": 15,
+    "deal": false
+  },
+
+  {
+    "objectID": "dep_srilanka_001",
+    "departureId": "dep_srilanka_001",
+    "productId": "prod_srilanka_01",
+    "productName": "Sri Lanka Explorer",
+    "startDate": "2026-05-03",
+    "endDate": "2026-05-10",
+    "price": 1150,
+    "availability": 10,
+    "deal": false
+  },
+  {
+    "objectID": "dep_srilanka_002",
+    "departureId": "dep_srilanka_002",
+    "productId": "prod_srilanka_01",
+    "productName": "Sri Lanka Explorer",
+    "startDate": "2026-05-20",
+    "endDate": "2026-05-27",
+    "price": 1100,
+    "availability": 6,
+    "deal": true
+  },
+  {
+    "objectID": "dep_srilanka_003",
+    "departureId": "dep_srilanka_003",
+    "productId": "prod_srilanka_01",
+    "productName": "Sri Lanka Explorer",
+    "startDate": "2026-06-05",
+    "endDate": "2026-06-12",
+    "price": 1200,
+    "availability": 9,
+    "deal": false
+  },
+
+  {
+    "objectID": "dep_italy_001",
+    "departureId": "dep_italy_001",
+    "productId": "prod_italy_01",
+    "productName": "Highlights of Italy",
+    "startDate": "2026-05-08",
+    "endDate": "2026-05-14",
+    "price": 1950,
+    "availability": 14,
+    "deal": false
+  },
+  {
+    "objectID": "dep_italy_002",
+    "departureId": "dep_italy_002",
+    "productId": "prod_italy_01",
+    "productName": "Highlights of Italy",
+    "startDate": "2026-05-25",
+    "endDate": "2026-05-31",
+    "price": 1900,
+    "availability": 7,
+    "deal": true
+  },
+  {
+    "objectID": "dep_italy_003",
+    "departureId": "dep_italy_003",
+    "productId": "prod_italy_01",
+    "productName": "Highlights of Italy",
+    "startDate": "2026-06-10",
+    "endDate": "2026-06-16",
+    "price": 2050,
+    "availability": 11,
+    "deal": false
+  },
+
+  {
+    "objectID": "dep_peru_001",
+    "departureId": "dep_peru_001",
+    "productId": "prod_peru_01",
+    "productName": "Peru Adventure Trail",
+    "startDate": "2026-05-06",
+    "endDate": "2026-05-14",
+    "price": 2150,
+    "availability": 5,
+    "deal": false
+  },
+  {
+    "objectID": "dep_peru_002",
+    "departureId": "dep_peru_002",
+    "productId": "prod_peru_01",
+    "productName": "Peru Adventure Trail",
+    "startDate": "2026-05-28",
+    "endDate": "2026-06-05",
+    "price": 2100,
+    "availability": 4,
+    "deal": true
+  },
+  {
+    "objectID": "dep_peru_003",
+    "departureId": "dep_peru_003",
+    "productId": "prod_peru_01",
+    "productName": "Peru Adventure Trail",
+    "startDate": "2026-06-15",
+    "endDate": "2026-06-23",
+    "price": 2250,
+    "availability": 8,
+    "deal": false
+  },
+
+  {
+    "objectID": "dep_morocco_001",
+    "departureId": "dep_morocco_001",
+    "productId": "prod_morocco_01",
+    "productName": "Magic of Morocco",
+    "startDate": "2026-05-04",
+    "endDate": "2026-05-11",
+    "price": 1750,
+    "availability": 13,
+    "deal": false
+  },
+  {
+    "objectID": "dep_morocco_002",
+    "departureId": "dep_morocco_002",
+    "productId": "prod_morocco_01",
+    "productName": "Magic of Morocco",
+    "startDate": "2026-05-18",
+    "endDate": "2026-05-25",
+    "price": 1700,
+    "availability": 6,
+    "deal": true
+  },
+  {
+    "objectID": "dep_morocco_003",
+    "departureId": "dep_morocco_003",
+    "productId": "prod_morocco_01",
+    "productName": "Magic of Morocco",
+    "startDate": "2026-06-08",
+    "endDate": "2026-06-15",
+    "price": 1800,
+    "availability": 10,
+    "deal": false
+  }
+]

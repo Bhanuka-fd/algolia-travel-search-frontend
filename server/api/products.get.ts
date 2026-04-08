@@ -1,37 +1,8 @@
-export default defineEventHandler(() => {
-  return [
-    {
-      objectID: 'prod_japan_01',
-      productId: 'prod_japan_01',
-      name: 'Best of Japan',
-      country: 'Japan',
-      duration: 10,
-      theme: 'Culture',
-      rating: 4.8,
-      basePrice: 2400,
-      departureCount: 3
-    },
-    {
-      objectID: 'prod_srilanka_01',
-      productId: 'prod_srilanka_01',
-      name: 'Sri Lanka Explorer',
-      country: 'Sri Lanka',
-      duration: 8,
-      theme: 'Adventure',
-      rating: 4.7,
-      basePrice: 1100,
-      departureCount: 3
-    },
-    {
-      objectID: 'prod_italy_01',
-      productId: 'prod_italy_01',
-      name: 'Highlights of Italy',
-      country: 'Italy',
-      duration: 7,
-      theme: 'Food',
-      rating: 4.6,
-      basePrice: 1900,
-      departureCount: 3
-    }
-  ]
+import { promises as fs } from 'node:fs'
+import path from 'node:path'
+
+export default defineEventHandler(async () => {
+  const filePath = path.resolve(process.cwd(), 'data/products.json')
+  const fileContent = await fs.readFile(filePath, 'utf-8')
+  return JSON.parse(fileContent)
 })
