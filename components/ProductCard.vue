@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import type { Product } from '../types/travel'
+import type { Product } from '~/types/travel'
 
 defineProps<{
   product: Product
@@ -7,12 +7,15 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/product/${product.productId}`" class="card" style="display:block;">
-    <h3>{{ product.name }}</h3>
-    <p><strong>Country:</strong> {{ product.country }}</p>
-    <p><strong>Theme:</strong> {{ product.theme }}</p>
-    <p><strong>Duration:</strong> {{ product.duration }} days</p>
-    <p><strong>Base Price:</strong> ${{ product.basePrice }}</p>
-    <p><strong>Departures:</strong> {{ product.departureCount }}</p>
+  <NuxtLink :to="`/product/${product.productId}`" class="card">
+    <h3 class="card-title">{{ product.name }}</h3>
+
+    <ul class="info-list">
+      <li class="info-list-item"><strong>Country:</strong> {{ product.country }}</li>
+      <li class="info-list-item"><strong>Theme:</strong> {{ product.theme }}</li>
+      <li class="info-list-item"><strong>Duration:</strong> {{ product.duration }} days</li>
+      <li class="info-list-item"><strong>Base Price:</strong> ${{ product.basePrice }}</li>
+      <li class="info-list-item"><strong>Departures:</strong> {{ product.departureCount }}</li>
+    </ul>
   </NuxtLink>
 </template>

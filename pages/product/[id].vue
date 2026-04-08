@@ -1,36 +1,47 @@
 <script setup lang="ts">
+import { computed } from 'vue'
+import { useFetch, useRoute } from '#app'
+import type { Departure, Product } from '~/types/travel'
+
 const route = useRoute()
 
-const { data: products } = await useFetch('/api/products')
-const { data: departures } = await useFetch('/api/departures')
+const { data: products } = await useFetch<Product[]>('/api/products', {
+  default: () => []
+})
+const { data: departures } = await useFetch<Departure[]>('/api/departures', {
+  default: () => []
+})
 
 const product = computed(() =>
-  products.value?.find((item: any) => item.productId === route.params.id)
+  products.value.find((item) => item.productId === route.params.id)
 )
 
 const relatedDepartures = computed(() =>
-  departures.value?.filter((item: any) => item.productId === route.params.id) || []
+  departures.value.filter((item) => item.productId === route.params.id)
 )
 </script>
 
 <template>
   <div class="container" v-if="product">
     <h1 class="page-title">{{ product.name }}</h1>
+    <p class="page-lead">A closer look at product details and matching departures.</p>
 
-    <div class="card" style="margin-bottom:20px;">
-      <p><strong>Country:</strong> {{ product.country }}</p>
-      <p><strong>Theme:</strong> {{ product.theme }}</p>
-      <p><strong>Duration:</strong> {{ product.duration }} days</p>
-      <p><strong>Base Price:</strong> ${{ product.basePrice }}</p>
-      <p><strong>Rating:</strong> {{ product.rating }}</p>
-      <p><strong>Total Departures:</strong> {{ product.departureCount }}</p>
+    <div class="card meta-card">
+      <ul class="info-list">
+        <li class="info-list-item"><strong>Country:</strong> {{ product.country }}</li>
+        <li class="info-list-item"><strong>Theme:</strong> {{ product.theme }}</li>
+        <li class="info-list-item"><strong>Duration:</strong> {{ product.duration }} days</li>
+        <li class="info-list-item"><strong>Base Price:</strong> ${{ product.basePrice }}</li>
+        <li class="info-list-item"><strong>Rating:</strong> {{ product.rating }}</li>
+        <li class="info-list-item"><strong>Total Departures:</strong> {{ product.departureCount }}</li>
+      </ul>
 
-      <button style="margin-top:12px;padding:10px 16px;border:none;border-radius:8px;background:#111827;color:white;cursor:pointer;">
+      <button class="cta-button">
         Start Booking
       </button>
     </div>
 
-    <h2 style="margin-bottom:16px;">Related Departures</h2>
+    <h2 class="section-title">Related Departures</h2>
     <div class="grid grid-3">
       <DepartureCard
         v-for="departure in relatedDepartures"
@@ -41,6 +52,9 @@ const relatedDepartures = computed(() =>
   </div>
 
   <div class="container" v-else>
-    <h1 class="page-title">Product not found</h1>
+    <div class="card state-card">
+      <h1 class="page-title">Product not found</h1>
+      <p class="page-lead">The product may have been removed or the link is incorrect.</p>
+    </div>
   </div>
 </template>

@@ -8,14 +8,17 @@ defineProps<{
 
 <template>
   <div class="card">
-    <h3>{{ departure.productName }}</h3>
-    <p><strong>Departure ID:</strong> {{ departure.departureId }}</p>
-    <p><strong>Dates:</strong> {{ departure.startDate }} to {{ departure.endDate }}</p>
-    <p><strong>Price:</strong> ${{ departure.price }}</p>
-    <p><strong>Availability:</strong> {{ departure.availability }}</p>
-    <p><strong>Deal:</strong> {{ departure.deal ? 'Yes' : 'No' }}</p>
+    <h3 class="card-title">{{ departure.productName }}</h3>
 
-    <button style="margin-top:12px;padding:10px 16px;border:none;border-radius:8px;background:#2563eb;color:white;cursor:pointer;">
+    <ul class="info-list">
+      <li class="info-list-item"><strong>Departure ID:</strong> {{ departure.departureId }}</li>
+      <li class="info-list-item"><strong>Dates:</strong> {{ departure.startDate }} to {{ departure.endDate }}</li>
+      <li class="info-list-item"><strong>Price:</strong> ${{ departure.price }}</li>
+      <li class="info-list-item"><strong>Availability:</strong> {{ departure.availability }}</li>
+      <li class="info-list-item"><strong>Deal:</strong> {{ departure.deal ? 'Yes' : 'No' }}</li>
+    </ul>
+
+    <button class="cta-button">
       Select Departure
     </button>
   </div>

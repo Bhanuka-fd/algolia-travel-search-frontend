@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import type { Departure } from '../types/travel'
-import { useFetch } from 'nuxt/app'
+import { useFetch } from '#app'
+import type { Departure } from '~/types/travel'
 
 const { data: departures } = await useFetch<Departure[]>('../api/departures', {
   default: () => []
@@ -10,6 +10,7 @@ const { data: departures } = await useFetch<Departure[]>('../api/departures', {
 <template>
   <div class="container">
     <h1 class="page-title">Departures</h1>
+    <p class="page-lead">Inspect date-level inventory, price, and current deal visibility.</p>
 
     <div class="grid grid-3">
       <DepartureCard
