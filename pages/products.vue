@@ -13,11 +13,13 @@ const { data: products } = await useFetch<Product[]>('../api/products', {
     <p class="page-lead">Browse travel products and open any card for detailed departures.</p>
 
     <div class="grid grid-3">
-      <ProductCard
+      <NuxtLink
         v-for="product in products"
         :key="product.productId"
-        :product="product"
-      />
+        :to="`/product/${product.productId}`"
+      >
+        <ProductCard :product="product" />
+      </NuxtLink>
     </div>
   </div>
 </template>

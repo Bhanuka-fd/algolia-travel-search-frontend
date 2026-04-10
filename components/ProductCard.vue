@@ -7,7 +7,7 @@ defineProps<{
 </script>
 
 <template>
-  <NuxtLink :to="`/product/${product.productId}`" class="card">
+  <div class="card">
     <h3 class="card-title">{{ product.name }}</h3>
 
     <ul class="info-list">
@@ -17,5 +17,5 @@ defineProps<{
       <li class="info-list-item"><strong>Base Price:</strong> ${{ product.basePrice }}</li>
       <li class="info-list-item"><strong>Departures:</strong> {{ product.departureCount }}</li>
     </ul>
-  </NuxtLink>
+  </div>
 </template>

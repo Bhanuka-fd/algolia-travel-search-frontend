@@ -2,6 +2,7 @@
 import { computed } from 'vue'
 import { useFetch, useRoute } from '#app'
 import type { Departure, Product } from '~/types/travel'
+import aa from 'search-insights'
 
 const route = useRoute()
 
@@ -19,6 +20,29 @@ const product = computed(() =>
 const relatedDepartures = computed(() =>
   departures.value.filter((item) => item.productId === route.params.id)
 )
+
+const queryID = computed(() => route.query.queryID || '')
+const objectID = computed(() => route.query.objectID || '')
+const position = computed(() => route.query.position || '')
+
+function handleStartBooking() {
+  console.log('CONVERSION EVENT')
+  console.log('productId:', route.params.id)
+  console.log('objectID:', objectID.value)
+  console.log('queryID:', queryID.value)
+  console.log('position:', position.value)
+  console.log('event:', 'Start Booking')
+
+  if (objectID.value && queryID.value) {
+    aa('convertedObjectIDsAfterSearch', {
+      eventName: 'Product Booking Started',
+      index: useRuntimeConfig().public.algoliaProductIndex,
+      objectIDs: [String(objectID.value)],
+      queryID: String(queryID.value)
+    })
+  }
+}
+
 </script>
 
 <template>
@@ -36,7 +60,13 @@ const relatedDepartures = computed(() =>
         <li class="info-list-item"><strong>Total Departures:</strong> {{ product.departureCount }}</li>
       </ul>
 
-      <button class="cta-button">
+      <hr style="margin:16px 0;" />
+
+      <p><strong>queryID:</strong> {{ queryID }}</p>
+      <p><strong>objectID:</strong> {{ objectID }}</p>
+      <p><strong>position:</strong> {{ position }}</p>
+
+      <button @click="handleStartBooking" class="cta-button">
         Start Booking
       </button>
     </div>
