@@ -11,6 +11,7 @@
     "seed:algolia": "node scripts/seed-algolia.mjs"
   },
   "dependencies": {
+    "@amplitude/analytics-browser": "^2.40.0",
     "@nuxtjs/algolia": "^1.11.2",
     "algoliasearch": "^5.50.1",
     "env": "^0.0.2",

@@ -2,6 +2,18 @@
 import { useFetch } from '#app'
 import type { Product } from '~/types/travel'
 
+const nuxtApp = useNuxtApp()
+
+function testAmplitude() {
+    nuxtApp.$amplitude.track({
+        event_type: 'Test Event',
+        event_properties: {
+            source: 'nuxt_app',
+            test: true,
+        }
+    })
+}
+
 const { data: products } = await useFetch<Product[]>('../api/products', {
   default: () => []
 })
@@ -21,5 +33,7 @@ const { data: products } = await useFetch<Product[]>('../api/products', {
         <ProductCard :product="product" />
       </NuxtLink>
     </div>
+
+    <button @click="testAmplitude">send test events</button>
   </div>
 </template>

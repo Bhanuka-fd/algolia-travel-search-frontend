@@ -5,6 +5,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     algoliaAdminApiKey: process.env.ALGOLIA_ADMIN_API_KEY,
     public: {
+      amplitudeApiKey: process.env.NUXT_PUBLIC_AMPLITUDE_API_KEY,
       algoliaAppId: process.env.ALGOLIA_APP_ID,
       algoliaSearchApiKey: process.env.ALGOLIA_SEARCH_API_KEY,
       algoliaProductIndex: process.env.ALGOLIA_PRODUCT_INDEX,
